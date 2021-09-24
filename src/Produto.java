@@ -7,42 +7,30 @@ public class Produto {
     private double preco;
 
     public Produto(String tipo, String nome, String tamanho) {
-        setTipo(tipo);
-        setNome(nome);
-        setTamanho(tamanho);
+        this.tipo = tipo;
+        this.nome = nome;
+        this.tamanho = tamanho;
         setPreco();
     }
 
 //    -------------------------
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+//    Getters:
+    public String getTipo() { return tipo; }
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-
     public double getPreco() {
         return preco;
     }
 
+//    -------------------------
+//    Setter:
     public void setPreco() {
         double precoAux = 0.0;
         if (getTipo().equals("acompanhamento")) {
@@ -56,7 +44,7 @@ public class Produto {
                 } else {
                     System.out.println("Tamanho indisponível");
                 }
-            } else if (getTipo().equals("salada")) {
+            } else if (getNome().equals("salada")) {
                 if (getTamanho().equals("grande")) {
                     precoAux = 9.0;
                 } else if (getTamanho().equals("médio")) {
@@ -88,12 +76,9 @@ public class Produto {
     }
 
 //    ------------------------------
-
-    public void alterarNome(String nome) {
-        setNome(nome);
-    }
-
+//    Como vai imprimir:
     public String toString() {
-        return (getTipo() + "\t\t" + getNome() + "\t\t" + getTamanho() + "\t\t" + NumberFormat.getCurrencyInstance().format(getPreco()));
+//        return (getTipo() + "\t\t" + getNome() + "\t\t" + getTamanho() + "\t\t" + NumberFormat.getCurrencyInstance().format(getPreco()));
+        return String.format("%15s %15s %10s \tR$ %.2f", getTipo(), getNome(), getTamanho(), getPreco());
     }
 }

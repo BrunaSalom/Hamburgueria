@@ -1,5 +1,4 @@
 import java.text.NumberFormat;
-import java.util.Arrays;
 
 public class Carrinho {
 
@@ -79,19 +78,15 @@ public class Carrinho {
     }
 
 //    ------------------------------------
-//    Imprimir no console
-    public void imprimirCarrinho(){
-        System.out.println(toString());
-    }
-
-
+//    Imprimir:
     public String toString(){
         String contents = "\nCarrinho de Compras\n";
-        contents += "\nTipo\t\tNome\t\tTamanho\t\tPreço\n";
+        contents += "\t\tTipo \t\t\tNome\t\tTamanho\tPreço\n";
 
         for (int i=0;i<itensProduto;i++){
             contents += produtos[i].toString() + "\n";
         }
+        contents += "\n";
         for (int i =0;i<itensCombo;i++){
             contents += combos[i].toString() + "\n";
         }
@@ -101,6 +96,4 @@ public class Carrinho {
 
         return contents;
     }
-
-
 }
